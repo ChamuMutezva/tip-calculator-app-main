@@ -1,0 +1,12 @@
+@use '../base';
+.header {
+   // padding-top: 3.125rem; 
+    padding-top: base.calculateRem(50);
+  // background-color: base.$main-bg;
+
+}
+.logo__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
