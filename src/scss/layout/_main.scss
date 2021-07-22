@@ -1,4 +1,26 @@
 @use '../base';
+body {
+    font-family: 'Space Mono', monospace;
+}
 .wrapper {
     background-color: base.$main-bg;
+}
+.main {
+    background-color: base.$white;
+    margin-top: 2.5rem;
+    border-radius: 25px 25px 0 0;
+}
+.form {
+	padding: 2rem;
+}
+.bill__label {
+	display: block;
+	font-weight: 700;
+	font-size: 1rem;
+    color: base.$mid-grey;
+}
+.bill {
+    background-color: base.$lt-grey;
+    border: none;
+    text-align: right;
 }
