@@ -1,26 +1,77 @@
 @use '../base';
 body {
-    font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", monospace;
 }
 .wrapper {
-    background-color: base.$main-bg;
+  background-color: base.$main-bg;
 }
 .main {
-    background-color: base.$white;
-    margin-top: 2.5rem;
-    border-radius: 25px 25px 0 0;
+  background-color: base.$white;
+  margin-top: 2.5rem;
+  border-radius: 25px 25px 0 0;
 }
 .form {
-	padding: 2rem;
+  padding: 2rem;
+}
+.lbl {
+  font-size: base.calculateRem(24);
+  font-weight: 700;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: base.$button-green ;
+  color: base.$white;
+  text-align: center;
+  border-radius: 5px;
+ // padding: .5rem;
+}
+.select__wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.input__wrapper {
+  flex: 1 1 40%;
+}
+.bill__total {
+  position: relative;
 }
 .bill__label {
-	display: block;
-	font-weight: 700;
-	font-size: 1rem;
-    color: base.$mid-grey;
+  display: block;
+  font-weight: 700;
+  font-size: base.calculateRem(16);
+  color: base.$mid-grey;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 40px;
+    height: 40px;
+    background-image: url("../../images/icon-dollar.svg");
+    background-repeat: no-repeat;
+    bottom: 0rem;
+    z-index: 1;
+    left: 1rem;
+  }
 }
 .bill {
-    background-color: base.$lt-grey;
-    border: none;
-    text-align: right;
+  position: relative;
+  background-color: base.$lt-grey;
+  border: none;
+  text-align: right;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: base.calculateRem(24);
+  font-weight: 700;
+  border-radius: 5px;
+}
+.select {
+  margin-top: 2rem;
+  border: none;
+}
+
+.input__wrapper {
+  position: relative;
 }
