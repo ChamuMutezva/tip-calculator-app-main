@@ -164,7 +164,7 @@ body {
   content: "";
   width: 40px;
   height: 40px;
-  background-image: url("../../images/icon-dollar.svg");
+  background-image: url("/icon-dollar.1e22f096.svg");
   background-repeat: no-repeat;
   bottom: 0rem;
   z-index: 1;
@@ -220,7 +220,7 @@ body {
   content: "";
   width: 40px;
   height: 40px;
-  background-image: url("../../images/icon-person.svg");
+  background-image: url("/icon-person.95411073.svg");
   background-repeat: no-repeat;
   bottom: 0rem;
   z-index: 1;
@@ -249,4 +249,7 @@ body {
   align-items: center;
 }
 
-/*# sourceMappingURL=main.css.map */
+
+
+
+/*# sourceMappingURL=/main.1603664a.css.map */
