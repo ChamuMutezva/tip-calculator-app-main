@@ -135,13 +135,45 @@ body {
   }
 }
 
-.tip, .total {
+.tip,
+.total {
   display: flex;
   flex-direction: column;
+  font-size: base.calculateRem(16);
 }
-.tip__person, .total__person {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
+.splitter {
+  font-size: base.calculateRem(13);
+  color: #7F9D9F
+}
+.tip__person,
+.total__person {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.tip__value, .total__value {
+  font-size: base.calculateRem(32);
+  font-weight: 700;
+  color: base.$active-green;
+}
+.display {
+  background-color: base.$button-green;
+  color: base.$white;
+  border-radius: 15px;
+  margin-top: 3rem;
+  padding: 3rem 1.5rem;
+}
+.reset {
+	display: block;
+	width: 100%;
+	border: none;
+  background-color: base.$active-green;
+  font-size: base.calculateRem(20);
+  font-weight: 700;
+  color: base.$dark-green;
+  padding: .6rem;
+  border-radius: 5px;
+  text-transform: uppercase;
 }
