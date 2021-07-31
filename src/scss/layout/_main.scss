@@ -54,7 +54,9 @@ body {
   flex-direction: row;
   gap: 1rem;
   flex-wrap: wrap;
+  padding-top: 1rem;
   padding-bottom: 2rem;
+
 }
 .input__wrapper {
   flex: 1 1 45%;
@@ -90,6 +92,7 @@ body {
   font-size: base.calculateRem(24);
   font-weight: 700;
   border-radius: 5px;
+  margin-top: 1rem;
 }
 .select {
   margin-top: 2rem;
@@ -116,10 +119,12 @@ body {
   padding: 0.5rem;
   border-radius: 5px;
   text-align: right;
+  margin-top: .5rem;
 }
 
 .lbl__people {
   position: relative;
+  //margin-bottom: .5rem;
   &::before {
     position: absolute;
     display: inline-block;

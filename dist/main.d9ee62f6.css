@@ -15,7 +15,8 @@ p,
 figure,
 blockquote,
 dl,
-dd {
+dd,
+fieldset {
   margin: 0;
 }
 
@@ -25,7 +26,8 @@ ol[role=list] {
   list-style: none;
 }
 
-ul {
+ul,
+fieldset {
   padding: 0;
 }
 
@@ -142,6 +144,7 @@ body {
   flex-direction: row;
   gap: 1rem;
   flex-wrap: wrap;
+  padding-top: 1rem;
   padding-bottom: 2rem;
 }
 
@@ -181,6 +184,7 @@ body {
   font-size: 1.5rem;
   font-weight: 700;
   border-radius: 5px;
+  margin-top: 1rem;
 }
 
 .select {
@@ -208,6 +212,7 @@ body {
   padding: 0.5rem;
   border-radius: 5px;
   text-align: right;
+  margin-top: 0.5rem;
 }
 
 .lbl__people {

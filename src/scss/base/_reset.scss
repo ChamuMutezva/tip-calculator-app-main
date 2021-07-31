@@ -15,7 +15,8 @@ p,
 figure,
 blockquote,
 dl,
-dd {
+dd,
+fieldset {
   margin: 0;
 }
 
@@ -25,7 +26,8 @@ ol[role='list'] {
   list-style: none;
 }
 
-ul {
+ul,
+fieldset {
   padding: 0;
 }
 

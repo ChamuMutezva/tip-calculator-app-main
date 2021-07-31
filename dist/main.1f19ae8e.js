@@ -118,14 +118,79 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"main.js":[function(require,module,exports) {
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 var radioBtn = Array.from(document.querySelectorAll(".percent"));
+var numPeople = document.querySelector(".num__people");
+var bill = document.querySelector(".bill");
+console.log(bill);
+var totalAmount = 0;
+var totalTipAmount = 0;
+var totalAmountWithTip = 0;
+var tipPerPerson = 0;
+var totalPerPerson = 0;
 radioBtn.forEach(function (item) {
-  var bill = document.querySelector(".bill");
   item.addEventListener("change", function (evt) {
-    console.log(evt.target);
-    console.log(bill.value);
+    calculateBill(evt.target);
   });
 });
+bill.addEventListener("input", function (evt) {
+  console.log(bill.value);
+  calculateBill(bill);
+});
+numPeople.addEventListener("input", function (evt) {
+  console.log(numPeople.value);
+  calculateBill(bill);
+});
+
+function calculateBill(tipAmount) {
+  console.log(tipAmount); //evt.target
+
+  console.log(bill.value, _typeof(bill.value));
+  console.log(tipAmount.value, _typeof(tipAmount.value)); //console.log(evt.target.value, typeof evt.target.value) 
+
+  console.log(numPeople.value, _typeof(numPeople.value));
+
+  if (bill.value === "" || Number(bill.value) <= 0) {
+    //if the bill is an empty string (no data has been entered) or
+    // if the bill entered is less that or equal to 0 , then return without doing anything
+    console.log("escape");
+    return false;
+  } else {
+    totalAmount = Number(bill.value);
+    console.log(bill.value !== "" || Number(bill.value) >= 0);
+    console.log("total amount is: ".concat(totalAmount));
+
+    if (numPeople.value === "" || Number(numPeople.value) <= 0) {
+      console.log("do nothing");
+      return false;
+    } else {
+      totalTipAmount = totalAmount * Number(tipAmount.value) / 100; //evt.target
+
+      totalAmountWithTip = totalAmount + totalTipAmount;
+      tipPerPerson = totalTipAmount / Number(numPeople.value);
+      totalPerPerson = totalAmountWithTip / Number(numPeople.value);
+      console.log(numPeople.value !== "" && Number(numPeople.value) >= 0);
+      console.log("Total tip is : ".concat(totalTipAmount));
+      console.log("Total amount with tip is : ".concat(totalAmountWithTip));
+      console.log("Tip amount per person : ".concat(tipPerPerson));
+      console.log("Total amount per person : ".concat(totalPerPerson));
+      display();
+      return true;
+    }
+  }
+}
+
+function display() {
+  var dollarsUS = Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD"
+  });
+  var displayTip = document.querySelector(".tip__value");
+  var displayTotalAmount = document.querySelector(".total__value");
+  displayTip.innerHTML = dollarsUS.format(tipPerPerson);
+  displayTotalAmount.innerHTML = dollarsUS.format(totalPerPerson);
+}
 },{}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -154,7 +219,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57843" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59990" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
