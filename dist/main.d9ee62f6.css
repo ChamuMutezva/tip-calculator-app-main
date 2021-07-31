@@ -98,7 +98,6 @@ body {
 
 .form {
   padding: 2rem;
-  max-width: 520px;
   margin: auto;
 }
 
@@ -169,7 +168,7 @@ body {
   height: 40px;
   background-image: url("/icon-dollar.1e22f096.svg");
   background-repeat: no-repeat;
-  bottom: 0rem;
+  top: 3.5rem;
   z-index: 1;
   left: 1rem;
 }
@@ -221,7 +220,7 @@ body {
 .lbl__people::before {
   position: absolute;
   display: inline-block;
-  top: 2.5rem;
+  top: 3rem;
   content: "";
   width: 40px;
   height: 40px;
@@ -241,7 +240,7 @@ body {
 
 .splitter {
   font-size: 0.8125rem;
-  color: #7F9D9F;
+  color: #7f9d9f;
 }
 
 .tip__person,
@@ -253,18 +252,25 @@ body {
   margin-bottom: 1rem;
 }
 
-.tip__value, .total__value {
+.tip__value,
+.total__value {
   font-size: 2rem;
   font-weight: 700;
   color: #26C2AE;
+}
+
+.inputs {
+  max-width: 520px;
+  margin: auto;
 }
 
 .display {
   background-color: #00474B;
   color: #ffffff;
   border-radius: 15px;
-  margin-top: 3rem;
+  margin: 3rem auto;
   padding: 3rem 1.5rem;
+  max-width: 520px;
 }
 
 .reset {
@@ -280,6 +286,55 @@ body {
   text-transform: uppercase;
 }
 
+input[type=radio]:checked + label {
+  background-color: #26C2AE;
+}
+
+@media screen and (min-width: 980px) {
+  .wrapper {
+    padding: 2.5rem;
+  }
+
+  .header {
+    padding-top: 10.1875rem;
+  }
+
+  .main {
+    max-width: 57.5rem;
+    margin: 10rem auto 4rem;
+    border-radius: 25px 25px 25px 25px;
+  }
+
+  .form {
+    margin: auto;
+    display: flex;
+    gap: 3rem;
+    padding: 2.5rem;
+  }
+
+  .inputs,
+.display {
+    flex: 1 1 40%;
+  }
+
+  .display {
+    margin: 1rem auto;
+    padding: 0rem 1.5rem;
+  }
+
+  .input__wrapper {
+    flex: 1 1 30%;
+  }
+
+  .tip__value,
+.total__value {
+    font-size: 3rem;
+  }
+
+  .reset {
+    margin-top: 7rem;
+  }
+}
 .header {
   padding-top: 3.125rem;
 }

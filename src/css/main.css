@@ -15,7 +15,8 @@ p,
 figure,
 blockquote,
 dl,
-dd {
+dd,
+fieldset {
   margin: 0;
 }
 
@@ -25,7 +26,8 @@ ol[role=list] {
   list-style: none;
 }
 
-ul {
+ul,
+fieldset {
   padding: 0;
 }
 
@@ -96,7 +98,6 @@ body {
 
 .form {
   padding: 2rem;
-  max-width: 520px;
   margin: auto;
 }
 
@@ -142,6 +143,7 @@ body {
   flex-direction: row;
   gap: 1rem;
   flex-wrap: wrap;
+  padding-top: 1rem;
   padding-bottom: 2rem;
 }
 
@@ -181,6 +183,7 @@ body {
   font-size: 1.5rem;
   font-weight: 700;
   border-radius: 5px;
+  margin-top: 1rem;
 }
 
 .select {
@@ -208,6 +211,7 @@ body {
   padding: 0.5rem;
   border-radius: 5px;
   text-align: right;
+  margin-top: 0.5rem;
 }
 
 .lbl__people {
@@ -236,7 +240,7 @@ body {
 
 .splitter {
   font-size: 0.8125rem;
-  color: #7F9D9F;
+  color: #7f9d9f;
 }
 
 .tip__person,
@@ -248,18 +252,25 @@ body {
   margin-bottom: 1rem;
 }
 
-.tip__value, .total__value {
+.tip__value,
+.total__value {
   font-size: 2rem;
   font-weight: 700;
   color: #26C2AE;
+}
+
+.inputs {
+  max-width: 520px;
+  margin: auto;
 }
 
 .display {
   background-color: #00474B;
   color: #ffffff;
   border-radius: 15px;
-  margin-top: 3rem;
+  margin: 3rem auto;
   padding: 3rem 1.5rem;
+  max-width: 520px;
 }
 
 .reset {

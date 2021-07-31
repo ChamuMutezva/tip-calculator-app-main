@@ -1,6 +1,8 @@
 const radioBtn = Array.from(document.querySelectorAll(".percent"))
 const numPeople = document.querySelector(".num__people")
 const bill = document.querySelector(".bill")
+const custom = document.querySelector(".custom")
+
 console.log(bill)
 let totalAmount = 0
 let totalTipAmount = 0
@@ -24,6 +26,17 @@ numPeople.addEventListener("input", (evt) => {
     calculateBill(bill)
 })
 
+custom.addEventListener("focus", (evt) => {
+    console.log(evt.target)
+    radioBtn.forEach(item => {   
+       item.checked = false
+    })
+    
+})
+custom.addEventListener("input", (evt) =>{
+    console.log(custom.value)
+    calculateBill(custom)
+})
 function calculateBill(tipAmount) {
     console.log(tipAmount) //evt.target
     console.log(bill.value, typeof bill.value)

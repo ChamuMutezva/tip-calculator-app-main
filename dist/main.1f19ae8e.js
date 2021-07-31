@@ -123,6 +123,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 var radioBtn = Array.from(document.querySelectorAll(".percent"));
 var numPeople = document.querySelector(".num__people");
 var bill = document.querySelector(".bill");
+var custom = document.querySelector(".custom");
 console.log(bill);
 var totalAmount = 0;
 var totalTipAmount = 0;
@@ -141,6 +142,16 @@ bill.addEventListener("input", function (evt) {
 numPeople.addEventListener("input", function (evt) {
   console.log(numPeople.value);
   calculateBill(bill);
+});
+custom.addEventListener("focus", function (evt) {
+  console.log(evt.target);
+  radioBtn.forEach(function (item) {
+    item.checked = false;
+  });
+});
+custom.addEventListener("input", function (evt) {
+  console.log(custom.value);
+  calculateBill(custom);
 });
 
 function calculateBill(tipAmount) {

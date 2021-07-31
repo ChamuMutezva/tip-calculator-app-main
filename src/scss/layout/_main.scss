@@ -12,7 +12,7 @@ body {
 }
 .form {
   padding: 2rem;
-  max-width: 520px;
+  // max-width: 520px;
   margin: auto;
 }
 .lbl {
@@ -56,7 +56,6 @@ body {
   flex-wrap: wrap;
   padding-top: 1rem;
   padding-bottom: 2rem;
-
 }
 .input__wrapper {
   flex: 1 1 45%;
@@ -77,7 +76,7 @@ body {
     height: 40px;
     background-image: url("../../images/icon-dollar.svg");
     background-repeat: no-repeat;
-    bottom: 0rem;
+    top: 3.5rem;
     z-index: 1;
     left: 1rem;
   }
@@ -119,7 +118,7 @@ body {
   padding: 0.5rem;
   border-radius: 5px;
   text-align: right;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 
 .lbl__people {
@@ -128,7 +127,7 @@ body {
   &::before {
     position: absolute;
     display: inline-block;
-    top: 2.5rem;
+    top: 3rem;
     content: "";
     width: 40px;
     height: 40px;
@@ -148,7 +147,7 @@ body {
 }
 .splitter {
   font-size: base.calculateRem(13);
-  color: #7F9D9F
+  color: #7f9d9f;
 }
 .tip__person,
 .total__person {
@@ -158,27 +157,78 @@ body {
   align-items: center;
   margin-bottom: 1rem;
 }
-.tip__value, .total__value {
+.tip__value,
+.total__value {
   font-size: base.calculateRem(32);
   font-weight: 700;
   color: base.$active-green;
+}
+.inputs {
+  max-width: 520px;
+  margin: auto;
 }
 .display {
   background-color: base.$button-green;
   color: base.$white;
   border-radius: 15px;
-  margin-top: 3rem;
+  margin: 3rem auto;
   padding: 3rem 1.5rem;
+  max-width: 520px;
 }
 .reset {
-	display: block;
-	width: 100%;
-	border: none;
+  display: block;
+  width: 100%;
+  border: none;
   background-color: base.$active-green;
   font-size: base.calculateRem(20);
   font-weight: 700;
   color: base.$dark-green;
-  padding: .6rem;
+  padding: 0.6rem;
   border-radius: 5px;
   text-transform: uppercase;
+}
+
+input[type="radio"] {
+  &:checked + label {
+    background-color: base.$active-green;
+  }
+}
+
+@media screen and(min-width: 980px) {
+  .wrapper {
+    padding: 2.5rem;
+  }
+  .header {
+    padding-top: 10.1875rem;
+  }
+  .main {
+    max-width: 57.5rem;
+    margin: 10rem auto 4rem;
+    border-radius: 25px 25px 25px 25px;
+  }
+  .form {
+    margin: auto;
+    // max-width: 47.375rem;
+    display: flex;
+    gap: 3rem;
+    padding: 2.5rem;
+  }
+  .inputs,
+  .display {
+    flex: 1 1 40%;
+  }
+  .display {
+    margin: 1rem auto;
+    padding: 0rem 1.5rem;
+  }
+  .input__wrapper {
+    flex: 1 1 30%;
+  }
+  .tip__value,
+  .total__value {
+    font-size: base.calculateRem(48);
+  }
+  .reset {
+    margin-top: 7rem;
+  }
 }
