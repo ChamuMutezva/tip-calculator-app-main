@@ -131,7 +131,7 @@ function display() {
     calculateDisplayTotals(tipPerPerson, totalPerPerson)
 }
 
-resetBtn.addEventListener("click", () => {
+resetBtn.addEventListener("reset", () => {
     tipPerPerson = 0
     totalPerPerson = 0
     calculateDisplayTotals(tipPerPerson, totalPerPerson)

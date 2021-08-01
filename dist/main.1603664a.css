@@ -65,6 +65,7 @@ button,
 textarea,
 select {
   font: inherit;
+  width: 100%;
 }
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
@@ -82,6 +83,19 @@ select {
     scroll-behavior: auto !important;
   }
 }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  /* added line */
+  border: 0;
+}
+
 body {
   font-family: "Space Mono", monospace;
 }
@@ -101,6 +115,9 @@ body {
   margin: auto;
 }
 
+/* *********************
+RADIO BUTTONS LABELS
+************************ */
 .lbl {
   font-size: 1.5rem;
   font-weight: 700;
@@ -120,6 +137,9 @@ body {
   z-index: 1;
 }
 
+/* *********************
+CUSTOM INPUT ELEMENT
+************************ */
 .custom {
   width: 100%;
   height: 100%;
@@ -131,7 +151,15 @@ body {
   font-size: 1.5rem;
   font-weight: 700;
 }
+.custom:hover, .custom:focus {
+  cursor: pointer;
+  outline: dashed currentColor;
+  outline-offset: -0.25em;
+}
 
+/* *********************
+RADIO BUTTONS 
+************************ */
 .percent {
   position: absolute;
   top: 0;
@@ -147,16 +175,30 @@ body {
   padding-bottom: 2rem;
 }
 
+/* *********************
+RADIO BUTTON AND LABEL WRAPPER
+************************ */
 .input__wrapper {
+  position: relative;
   flex: 1 1 45%;
 }
 
+/* *********************
+BILL TOTAL BEFORE TIPS 
+DIV WRAPPING LABEL AND 
+INPUT LABEL
+************************ */
 .bill__total {
   position: relative;
 }
 
+/* *********************
+BILL INPUT LABEL 
+************************ */
 .bill__label {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
   font-weight: 700;
   font-size: 1rem;
   color: #5E7A7D;
@@ -168,14 +210,18 @@ body {
   height: 40px;
   background-image: url("/icon-dollar.1e22f096.svg");
   background-repeat: no-repeat;
-  bottom: 0rem;
+  top: 3.5rem;
   z-index: 1;
   left: 1rem;
 }
 
+/* *********************
+INPUT ELEMENT - BILL
+************************ */
 .bill {
   position: relative;
   background-color: #F3F9FA;
+  color: #00474B;
   border: none;
   text-align: right;
   width: 100%;
@@ -184,15 +230,20 @@ body {
   font-weight: 700;
   border-radius: 5px;
   margin-top: 1rem;
+  border: 1px solid transparent;
+}
+.bill:hover, .bill:focus {
+  cursor: pointer;
+  outline: dashed currentColor;
+  outline-offset: -0.25em;
 }
 
+/* *********************
+FIELDSET
+************************ */
 .select {
   margin-top: 2rem;
   border: none;
-}
-
-.input__wrapper {
-  position: relative;
 }
 
 .labels {
@@ -201,6 +252,9 @@ body {
   color: #5E7A7D;
 }
 
+/* *********************
+NUMBER OF PEOPLE INPUT
+************************ */
 .num__people {
   background-color: #F3F9FA;
   color: #00474B;
@@ -213,14 +267,22 @@ body {
   text-align: right;
   margin-top: 0.5rem;
 }
+.num__people:hover, .num__people:focus {
+  cursor: pointer;
+  outline: dashed currentColor;
+  outline-offset: -0.25em;
+}
 
 .lbl__people {
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 .lbl__people::before {
   position: absolute;
   display: inline-block;
-  top: 2.5rem;
+  top: 4rem;
   content: "";
   width: 40px;
   height: 40px;
@@ -236,6 +298,7 @@ body {
   display: flex;
   flex-direction: column;
   font-size: 1rem;
+  flex: 1 1 40%;
 }
 
 .splitter {
@@ -243,6 +306,10 @@ body {
   color: #7f9d9f;
 }
 
+/* ******************************************
+//div holder of label and input only text box
+// with the calculate values
+********************************************* */
 .tip__person,
 .total__person {
   display: flex;
@@ -252,11 +319,20 @@ body {
   margin-bottom: 1rem;
 }
 
+/* *********************
+total tip and total paid
+ per person - readonly text
+************************ */
 .tip__value,
 .total__value {
   font-size: 2rem;
   font-weight: 700;
   color: #26C2AE;
+  flex: 1 1 60%;
+  display: inline;
+  text-align: right;
+  border: none;
+  background-color: inherit;
 }
 
 .inputs {
@@ -285,7 +361,87 @@ body {
   border-radius: 5px;
   text-transform: uppercase;
 }
+.reset:disabled {
+  background-color: #0d686d;
+}
 
+input[type=radio]:checked + label {
+  background-color: #26C2AE;
+}
+
+.err {
+  color: #E17457;
+  font-size: 0.625rem;
+  flex: 1 1 30%;
+  text-align: right;
+}
+
+.hide__err {
+  visibility: hidden;
+}
+
+.correct__format {
+  border: 1px solid #26C2AE;
+}
+
+.wrong__format {
+  border: 1px solid #E17457;
+}
+
+@media screen and (min-width: 21.875rem) {
+  .lbl__people::before {
+    top: 3rem;
+  }
+}
+@media screen and (min-width: 61.25rem) {
+  .wrapper {
+    padding: 2.5rem;
+  }
+
+  .header {
+    padding-top: 10.1875rem;
+  }
+
+  .main {
+    max-width: 57.5rem;
+    margin: 5rem auto 4rem;
+    border-radius: 25px 25px 25px 25px;
+  }
+
+  .form {
+    margin: auto;
+    display: flex;
+    gap: 3rem;
+    padding: 2.5rem;
+  }
+
+  .inputs,
+.display {
+    flex: 1 1 40%;
+  }
+
+  .display {
+    margin: 1rem auto;
+    padding: 2rem 1.5rem;
+  }
+
+  .input__wrapper {
+    flex: 1 1 30%;
+  }
+
+  .tip__value,
+.total__value {
+    font-size: 3rem;
+  }
+
+  .err {
+    font-size: 1rem;
+  }
+
+  .reset {
+    margin-top: 7rem;
+  }
+}
 .header {
   padding-top: 3.125rem;
 }

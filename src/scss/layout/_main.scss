@@ -1,4 +1,5 @@
 @use '../base';
+
 body {
   font-family: "Space Mono", monospace;
 }
@@ -12,16 +13,17 @@ body {
 }
 .form {
   padding: 2rem;
-  // max-width: 520px;
-  margin: auto;
+   margin: auto;
 }
+/* *********************
+RADIO BUTTONS LABELS
+************************ */
 .lbl {
   font-size: base.calculateRem(24);
   font-weight: 700;
   display: block;
   width: 100%;
-  height: 100%;
-  //  left: 0;
+  height: 100%;  
   background-color: base.$button-green;
   color: base.$white;
   text-align: center;
@@ -30,9 +32,13 @@ body {
   z-index: 2;
   position: relative;
 }
+
 .customlbl {
   z-index: 1;
 }
+/* *********************
+CUSTOM INPUT ELEMENT
+************************ */
 .custom {
   width: 100%;
   height: 100%;
@@ -51,6 +57,10 @@ body {
     outline-offset: -0.25em;
   }
 }
+
+/* *********************
+RADIO BUTTONS 
+************************ */
 .percent {
   position: absolute;
   top: 0;
@@ -64,12 +74,27 @@ body {
   padding-top: 1rem;
   padding-bottom: 2rem;
 }
+
+/* *********************
+RADIO BUTTON AND LABEL WRAPPER
+************************ */
 .input__wrapper {
+  position: relative;
   flex: 1 1 45%;
 }
+
+/* *********************
+BILL TOTAL BEFORE TIPS 
+DIV WRAPPING LABEL AND 
+INPUT LABEL
+************************ */
 .bill__total {
   position: relative;
 }
+
+/* *********************
+BILL INPUT LABEL 
+************************ */
 .bill__label {
   display: flex;
   justify-content: space-between;
@@ -90,6 +115,10 @@ body {
     left: 1rem;
   }
 }
+
+/* *********************
+INPUT ELEMENT - BILL
+************************ */
 .bill {
   position: relative;
   background-color: base.$lt-grey;
@@ -111,13 +140,13 @@ body {
     outline-offset: -0.25em;
   }
 }
+
+/* *********************
+FIELDSET
+************************ */
 .select {
   margin-top: 2rem;
   border: none;
-}
-
-.input__wrapper {
-  position: relative;
 }
 
 .labels {
@@ -126,6 +155,9 @@ body {
   color: base.$mid-grey;
 }
 
+/* *********************
+NUMBER OF PEOPLE INPUT
+************************ */
 .num__people {
   background-color: base.$lt-grey;
   color: base.$dark-green;
@@ -178,8 +210,11 @@ body {
   color: #7f9d9f;
 }
 
+
+/* ******************************************
 //div holder of label and input only text box
 // with the calculate values
+********************************************* */
 .tip__person,
 .total__person {
   display: flex;
@@ -187,9 +222,13 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
-  
 }
-// total tip and total paid per person - readonly text
+
+
+/* *********************
+total tip and total paid
+ per person - readonly text
+************************ */
 .tip__value,
 .total__value {
   font-size: base.calculateRem(32);
@@ -259,7 +298,7 @@ input[type="radio"] {
   }
 }
 
-@media screen and(min-width: 980px) {
+@media screen and(min-width: 61.25rem) {
   .wrapper {
     padding: 2.5rem;
   }
@@ -268,7 +307,7 @@ input[type="radio"] {
   }
   .main {
     max-width: 57.5rem;
-    margin: 10rem auto 4rem;
+    margin: 5rem auto 4rem;
     border-radius: 25px 25px 25px 25px;
   }
   .form {
@@ -292,6 +331,9 @@ input[type="radio"] {
   .tip__value,
   .total__value {
     font-size: base.calculateRem(48);
+  }
+  .err {
+    font-size: base.calculateRem(16);
   }
   .reset {
     margin-top: 7rem;

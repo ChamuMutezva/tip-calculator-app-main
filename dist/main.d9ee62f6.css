@@ -115,6 +115,9 @@ body {
   margin: auto;
 }
 
+/* *********************
+RADIO BUTTONS LABELS
+************************ */
 .lbl {
   font-size: 1.5rem;
   font-weight: 700;
@@ -134,6 +137,9 @@ body {
   z-index: 1;
 }
 
+/* *********************
+CUSTOM INPUT ELEMENT
+************************ */
 .custom {
   width: 100%;
   height: 100%;
@@ -151,6 +157,9 @@ body {
   outline-offset: -0.25em;
 }
 
+/* *********************
+RADIO BUTTONS 
+************************ */
 .percent {
   position: absolute;
   top: 0;
@@ -166,14 +175,26 @@ body {
   padding-bottom: 2rem;
 }
 
+/* *********************
+RADIO BUTTON AND LABEL WRAPPER
+************************ */
 .input__wrapper {
+  position: relative;
   flex: 1 1 45%;
 }
 
+/* *********************
+BILL TOTAL BEFORE TIPS 
+DIV WRAPPING LABEL AND 
+INPUT LABEL
+************************ */
 .bill__total {
   position: relative;
 }
 
+/* *********************
+BILL INPUT LABEL 
+************************ */
 .bill__label {
   display: flex;
   justify-content: space-between;
@@ -194,6 +215,9 @@ body {
   left: 1rem;
 }
 
+/* *********************
+INPUT ELEMENT - BILL
+************************ */
 .bill {
   position: relative;
   background-color: #F3F9FA;
@@ -214,13 +238,12 @@ body {
   outline-offset: -0.25em;
 }
 
+/* *********************
+FIELDSET
+************************ */
 .select {
   margin-top: 2rem;
   border: none;
-}
-
-.input__wrapper {
-  position: relative;
 }
 
 .labels {
@@ -229,6 +252,9 @@ body {
   color: #5E7A7D;
 }
 
+/* *********************
+NUMBER OF PEOPLE INPUT
+************************ */
 .num__people {
   background-color: #F3F9FA;
   color: #00474B;
@@ -280,6 +306,10 @@ body {
   color: #7f9d9f;
 }
 
+/* ******************************************
+//div holder of label and input only text box
+// with the calculate values
+********************************************* */
 .tip__person,
 .total__person {
   display: flex;
@@ -289,6 +319,10 @@ body {
   margin-bottom: 1rem;
 }
 
+/* *********************
+total tip and total paid
+ per person - readonly text
+************************ */
 .tip__value,
 .total__value {
   font-size: 2rem;
@@ -359,7 +393,7 @@ input[type=radio]:checked + label {
     top: 3rem;
   }
 }
-@media screen and (min-width: 980px) {
+@media screen and (min-width: 61.25rem) {
   .wrapper {
     padding: 2.5rem;
   }
@@ -370,7 +404,7 @@ input[type=radio]:checked + label {
 
   .main {
     max-width: 57.5rem;
-    margin: 10rem auto 4rem;
+    margin: 5rem auto 4rem;
     border-radius: 25px 25px 25px 25px;
   }
 
@@ -398,6 +432,10 @@ input[type=radio]:checked + label {
   .tip__value,
 .total__value {
     font-size: 3rem;
+  }
+
+  .err {
+    font-size: 1rem;
   }
 
   .reset {
