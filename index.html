@@ -27,6 +27,9 @@
   <body>
     <div class="wrapper">
       <header class="header">
+        <h1 class="sr-only">
+          Calculator to work out tip and total amount to be paid per person
+        </h1>
         <div class="logo__wrapper">
           <img class="logo" src="./images/logo.svg" alt="welcome to splitter" />
         </div>
@@ -36,23 +39,27 @@
         <form class="form">
           <div class="inputs input__bill">
             <div class="bill__total">
-              <label class="bill__label" for="bill">Bill</label>
+              <label class="bill__label" for="bill"
+                >Bill
+                <span class="err bill__err hide__err"
+                  >Can't be zero or less</span
+                >
+              </label>
               <input
                 type="number"
                 name="bill__amt"
                 id="bill"
                 class="bill"
-                min="1.00"
+                min="0.00"
                 step="1.00"
                 max="1000.00"
-                value="10.00"
+                value="0.00"
               />
             </div>
             <fieldset class="select">
               <legend class="labels">Select Tip %</legend>
               <div class="select__wrapper">
                 <div class="input__wrapper five__wrapper">
-                  
                   <input
                     type="radio"
                     id="five"
@@ -65,7 +72,6 @@
                 </div>
 
                 <div class="input__wrapper ten__wrapper">
-                 
                   <input
                     type="radio"
                     id="ten"
@@ -77,7 +83,6 @@
                 </div>
 
                 <div class="input__wrapper fifteen__wrapper">
-                 
                   <input
                     type="radio"
                     id="fifteen"
@@ -89,7 +94,6 @@
                 </div>
 
                 <div class="input__wrapper twentyfive__wrapper">
-                  
                   <input
                     type="radio"
                     id="twentyfive"
@@ -101,7 +105,6 @@
                 </div>
 
                 <div class="input__wrapper fifty__wrapper">
-                  
                   <input
                     type="radio"
                     id="fifty"
@@ -124,34 +127,55 @@
                     value=""
                     placeholder="Custom"
                   />
-                
                 </div>
               </div>
             </fieldset>
             <div class="people__total">
               <label class="labels lbl__people" for="people"
-                >Number of people</label
+                >Number of people
+                <span class="err people__err hide__err"
+                  >Can't be zero or less</span
+                ></label
               >
               <input
                 type="number"
                 class="num__people"
                 name="num__of__people"
                 id="people__total"
-                min="1"
+                min="0"
                 step="1"
+                max="100"
               />
             </div>
           </div>
           <div class="display" role="region" aria-live="polite">
             <div class="tip__person">
-              <p class="tip">
+              <label class="tip">
                 Tip Amount <span class="splitter">/ person</span>
-              </p>
-              <span class="tip__value">$0.00</span>
+              </label>
+              <!-- <span class="tip__value">$0.00</span> -->
+              <input
+                class="tip__value"
+                type="text"
+                name="tip__only"
+                id=""
+                value="$0.00"
+                readonly
+              />
             </div>
             <div class="total__person">
-              <p class="total">Total <span class="splitter">/ person</span></p>
-              <span class="total__value">$00.00</span>
+              <label class="total"
+                >Total <span class="splitter">/ person</span></label
+              >
+              <input
+                class="total__value"
+                type="text"
+                name="total__tip"
+                id=""
+                value="$0.00"
+                readonly
+              />
+              <!--<span class="total__value">$00.00</span> -->
             </div>
 
             <button class="reset" type="reset">Reset</button>

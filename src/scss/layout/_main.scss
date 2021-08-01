@@ -43,6 +43,13 @@ body {
   color: #547878;
   font-size: base.calculateRem(24);
   font-weight: 700;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    outline: dashed currentColor;
+    outline-offset: -0.25em;
+  }
 }
 .percent {
   position: absolute;
@@ -64,7 +71,9 @@ body {
   position: relative;
 }
 .bill__label {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
   font-weight: 700;
   font-size: base.calculateRem(16);
   color: base.$mid-grey;
@@ -84,6 +93,7 @@ body {
 .bill {
   position: relative;
   background-color: base.$lt-grey;
+  color: base.$dark-green;
   border: none;
   text-align: right;
   width: 100%;
@@ -92,6 +102,14 @@ body {
   font-weight: 700;
   border-radius: 5px;
   margin-top: 1rem;
+  border: 1px solid transparent;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    outline: dashed currentColor;
+    outline-offset: -0.25em;
+  }
 }
 .select {
   margin-top: 2rem;
@@ -119,15 +137,24 @@ body {
   border-radius: 5px;
   text-align: right;
   margin-top: 0.5rem;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    outline: dashed currentColor;
+    outline-offset: -0.25em;
+  }
 }
 
 .lbl__people {
   position: relative;
-  //margin-bottom: .5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
   &::before {
     position: absolute;
     display: inline-block;
-    top: 3rem;
+    top: 4rem;
     content: "";
     width: 40px;
     height: 40px;
@@ -144,11 +171,15 @@ body {
   display: flex;
   flex-direction: column;
   font-size: base.calculateRem(16);
+  flex: 1 1 40%;
 }
 .splitter {
   font-size: base.calculateRem(13);
   color: #7f9d9f;
 }
+
+//div holder of label and input only text box
+// with the calculate values
 .tip__person,
 .total__person {
   display: flex;
@@ -156,12 +187,19 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+  
 }
+// total tip and total paid per person - readonly text
 .tip__value,
 .total__value {
   font-size: base.calculateRem(32);
   font-weight: 700;
   color: base.$active-green;
+  flex: 1 1 60%;
+  display: inline;
+  text-align: right;
+  border: none;
+  background-color: inherit;
 }
 .inputs {
   max-width: 520px;
@@ -186,11 +224,38 @@ body {
   padding: 0.6rem;
   border-radius: 5px;
   text-transform: uppercase;
+
+  &:disabled {
+    background-color: #0d686d;
+  }
 }
 
 input[type="radio"] {
   &:checked + label {
     background-color: base.$active-green;
+  }
+}
+.err {
+  color: base.$err;
+  font-size: base.calculateRem(10);
+  flex: 1 1 30%;
+  text-align: right;
+}
+.hide__err {
+  visibility: hidden;
+}
+.correct__format {
+  border: 1px solid base.$active-green;
+}
+.wrong__format {
+  border: 1px solid base.$err;
+}
+
+@media screen and (min-width: 21.875rem) {
+  .lbl__people {
+    &::before {
+      top: 3rem;
+    }
   }
 }
 
@@ -219,7 +284,7 @@ input[type="radio"] {
   }
   .display {
     margin: 1rem auto;
-    padding: 0rem 1.5rem;
+    padding: 2rem 1.5rem;
   }
   .input__wrapper {
     flex: 1 1 30%;
