@@ -12,14 +12,14 @@ let totalTipAmount = 0
 let totalAmountWithTip = 0
 let tipPerPerson = 0
 let totalPerPerson = 0
-
+/*
 console.log(validate)
 if (Number(numPeople.value) <= 0) {
     resetBtn.disabled = true
 } else {
     resetBtn.disabled = false
 }
-
+*/
 radioBtn.forEach(item => {
     item.addEventListener("change", (evt) => {
         calculateBill(evt.target)
