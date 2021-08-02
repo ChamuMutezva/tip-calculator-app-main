@@ -29,8 +29,8 @@ Users should be able to:
 ### Screenshot
 
 ![desktop active state](./images/desktop.png)
-![desktop](./images/desktop.png)
-![mobile preview](./images/desktop.png)
+![desktop](./images/desktop1.png)
+![mobile preview](./images/mobile.png)
 
 ### Links
 
@@ -48,15 +48,9 @@ Users should be able to:
 
 ### What I learned
 
-
-
 ### Continued development
 
-
-
 ### Useful resources
-
-
 
 ## Author
 
