@@ -14,10 +14,10 @@ let tipPerPerson = 0
 let totalPerPerson = 0
 
 console.log(validate)
-if (validate) {
-    resetBtn.disabled = false
-} else {
+if (Number(numPeople.value) <= 0) {
     resetBtn.disabled = true
+} else {
+    resetBtn.disabled = false
 }
 
 radioBtn.forEach(item => {
@@ -54,6 +54,7 @@ function validateNumbers(numToValidate, element, errSpan) {
 bill.addEventListener("input", (evt) => {
     const validNum = numberRegex.test(bill.value)
     const billErr = document.querySelector(".bill__err")
+  
     validateNumbers(validNum, bill, billErr)
 
 })
@@ -100,13 +101,7 @@ function calculateBill(billedAmount) {
             tipPerPerson = totalTipAmount / Number(numPeople.value)
             totalPerPerson = totalAmountWithTip / Number(numPeople.value)
             validate = true
-
-            if (validate) {
-                resetBtn.disabled = false
-            } else {
-                resetBtn.disabled = true
-            }
-
+           
             display()
             return true
         }

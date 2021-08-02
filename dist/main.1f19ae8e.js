@@ -133,10 +133,10 @@ var tipPerPerson = 0;
 var totalPerPerson = 0;
 console.log(validate);
 
-if (validate) {
-  resetBtn.disabled = false;
-} else {
+if (Number(numPeople.value) <= 0) {
   resetBtn.disabled = true;
+} else {
+  resetBtn.disabled = false;
 }
 
 radioBtn.forEach(function (item) {
@@ -212,13 +212,6 @@ function calculateBill(billedAmount) {
       tipPerPerson = totalTipAmount / Number(numPeople.value);
       totalPerPerson = totalAmountWithTip / Number(numPeople.value);
       validate = true;
-
-      if (validate) {
-        resetBtn.disabled = false;
-      } else {
-        resetBtn.disabled = true;
-      }
-
       display();
       return true;
     }
