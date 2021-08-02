@@ -21,7 +21,7 @@
 
     <title>Frontend Mentor | Tip calculator app</title>
     <link rel="stylesheet" href="./src/scss/main.scss" />
-     <link rel="stylesheet" href="./src/css/main.css" /> 
+    <link rel="stylesheet" href="./src/css/main.css" />
   </head>
 
   <body>
@@ -131,7 +131,7 @@
               </div>
             </fieldset>
             <div class="people__total">
-              <label class="labels lbl__people" for="people"
+              <label class="labels lbl__people" for="people__total"
                 >Number of people
                 <span class="err people__err hide__err"
                   >Can't be zero or less</span
@@ -150,7 +150,7 @@
           </div>
           <div class="display" role="region" aria-live="polite">
             <div class="tip__person">
-              <label class="tip">
+              <label class="tip" for="tip__calculated">
                 Tip Amount <span class="splitter">/ person</span>
               </label>
               <!-- <span class="tip__value">$0.00</span> -->
@@ -158,20 +158,20 @@
                 class="tip__value"
                 type="text"
                 name="tip__only"
-                id=""
+                id="tip__calculated"
                 value="$0.00"
                 readonly
               />
             </div>
             <div class="total__person">
-              <label class="total"
+              <label class="total" for="totals__calculated"
                 >Total <span class="splitter">/ person</span></label
               >
               <input
                 class="total__value"
                 type="text"
                 name="total__tip"
-                id=""
+                id="totals__calculated"
                 value="$0.00"
                 readonly
               />
