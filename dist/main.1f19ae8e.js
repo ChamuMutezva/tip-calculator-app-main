@@ -124,6 +124,7 @@ var bill = document.querySelector(".bill");
 var custom = document.querySelector(".custom");
 var resetBtn = document.querySelector(".reset");
 var numberRegex = /^\s*[+-]?(\d+|\.\d+|\d+\.\d+|\d+\.)(e[+-]?\d+)?\s*$/;
+var form = document.querySelector(".form");
 var validate = false; //console.log(bill)
 
 var totalAmount = 0;
@@ -147,24 +148,32 @@ radioBtn.forEach(function (item) {
 
 function validateNumbers(numToValidate, element, errSpan) {
   if (numToValidate) {
+    console.log(validate);
+
+    if (Number(numPeople.value) <= 0 || Number(bill.value) <= 0) {
+      resetBtn.disabled = true;
+    } else {
+      resetBtn.disabled = false;
+    }
+
     if (Number(element.value) <= 0) {
       console.log("not a number");
       errSpan.classList.remove("hide__err");
       element.classList.remove("correct__format");
-      element.classList.add("wrong__format");
-      peopleErr.innerHTML = "Number can not be zero or less";
+      element.classList.add("wrong__format"); // peopleErr.innerHTML = "Number can not be zero or less"
+      //  resetBtn.disabled = false
     } else {
       errSpan.classList.add("hide__err");
       element.classList.add("correct__format");
       element.classList.remove("wrong__format");
-      calculateBill(bill);
+      calculateBill(bill); // resetBtn.disabled = false
     }
   } else {
     console.log("not a number");
     errSpan.classList.remove("hide__err");
     element.classList.remove("correct__format");
     element.classList.add("wrong__format");
-    errSpan.innerHTML = "Not a number";
+    errSpan.innerHTML = "Not a number"; // resetBtn.disabled = true
   }
 }
 
@@ -190,8 +199,7 @@ custom.addEventListener("input", function (evt) {
 });
 
 function calculateBill(billedAmount) {
-  validate = false;
-
+  // validate = false
   if (bill.value === "" || Number(bill.value) <= 0) {
     //if the bill is an empty string (no data has been entered) or
     // if the bill entered is less that or equal to 0 , then return without doing anything
@@ -234,11 +242,15 @@ function display() {
   calculateDisplayTotals(tipPerPerson, totalPerPerson);
 }
 
-resetBtn.addEventListener("reset", function () {
+form.addEventListener("reset", function (evt) {
+  // evt.preventDefault()
+  totalAmount = 0;
+  totalTipAmount = 0;
+  totalAmountWithTip = 0;
   tipPerPerson = 0;
   totalPerPerson = 0;
-  calculateDisplayTotals(tipPerPerson, totalPerPerson);
-  console.log(tipPerPerson);
+  resetBtn.disabled = true;
+  console.log("form reset");
 });
 },{}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -268,7 +280,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51600" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56079" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

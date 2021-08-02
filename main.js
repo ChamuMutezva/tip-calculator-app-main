@@ -4,6 +4,7 @@ const bill = document.querySelector(".bill")
 const custom = document.querySelector(".custom")
 const resetBtn = document.querySelector(".reset")
 const numberRegex = /^\s*[+-]?(\d+|\.\d+|\d+\.\d+|\d+\.)(e[+-]?\d+)?\s*$/
+const form = document.querySelector(".form")
 let validate = false
 
 //console.log(bill)
@@ -12,14 +13,14 @@ let totalTipAmount = 0
 let totalAmountWithTip = 0
 let tipPerPerson = 0
 let totalPerPerson = 0
-/*
+
 console.log(validate)
 if (Number(numPeople.value) <= 0) {
     resetBtn.disabled = true
 } else {
     resetBtn.disabled = false
 }
-*/
+
 radioBtn.forEach(item => {
     item.addEventListener("change", (evt) => {
         calculateBill(evt.target)
@@ -28,17 +29,26 @@ radioBtn.forEach(item => {
 
 function validateNumbers(numToValidate, element, errSpan) {
     if (numToValidate) {
+        console.log(validate)
+        if (Number(numPeople.value) <= 0 || Number(bill.value) <= 0) {
+            resetBtn.disabled = true
+        } else {
+            resetBtn.disabled = false
+        }
+
         if (Number(element.value) <= 0) {
             console.log("not a number")
             errSpan.classList.remove("hide__err")
             element.classList.remove("correct__format")
             element.classList.add("wrong__format")
-            peopleErr.innerHTML = "Number can not be zero or less"
+            // peopleErr.innerHTML = "Number can not be zero or less"
+            //  resetBtn.disabled = false
         } else {
             errSpan.classList.add("hide__err")
             element.classList.add("correct__format")
             element.classList.remove("wrong__format")
             calculateBill(bill)
+            // resetBtn.disabled = false
         }
     }
     else {
@@ -47,6 +57,7 @@ function validateNumbers(numToValidate, element, errSpan) {
         element.classList.remove("correct__format")
         element.classList.add("wrong__format")
         errSpan.innerHTML = "Not a number"
+        // resetBtn.disabled = true
     }
 
 }
@@ -54,7 +65,7 @@ function validateNumbers(numToValidate, element, errSpan) {
 bill.addEventListener("input", (evt) => {
     const validNum = numberRegex.test(bill.value)
     const billErr = document.querySelector(".bill__err")
-  
+
     validateNumbers(validNum, bill, billErr)
 
 })
@@ -79,7 +90,7 @@ custom.addEventListener("input", (evt) => {
 
 
 function calculateBill(billedAmount) {
-    validate = false
+    // validate = false
 
     if (bill.value === "" || Number(bill.value) <= 0) {
         //if the bill is an empty string (no data has been entered) or
@@ -96,12 +107,13 @@ function calculateBill(billedAmount) {
             // validate = false
             return false
         } else {
+
             totalTipAmount = totalAmount * Number(billedAmount.value) / 100 //evt.target
             totalAmountWithTip = totalAmount + totalTipAmount
             tipPerPerson = totalTipAmount / Number(numPeople.value)
             totalPerPerson = totalAmountWithTip / Number(numPeople.value)
             validate = true
-           
+
             display()
             return true
         }
@@ -119,16 +131,20 @@ function calculateDisplayTotals(tips, totals) {
     displayTip.value = dollarsUS.format(tips)
     displayTotalAmount.value = dollarsUS.format(totals)
     //displayTip.innerHTML = dollarsUS.format(tips)
-   // displayTotalAmount.innerHTML = dollarsUS.format(totals)
+    // displayTotalAmount.innerHTML = dollarsUS.format(totals)
 }
 
 function display() {
     calculateDisplayTotals(tipPerPerson, totalPerPerson)
 }
 
-resetBtn.addEventListener("reset", () => {
+form.addEventListener("reset", (evt) => {
+    // evt.preventDefault()
+    totalAmount = 0
+    totalTipAmount = 0
+    totalAmountWithTip = 0
     tipPerPerson = 0
     totalPerPerson = 0
-    calculateDisplayTotals(tipPerPerson, totalPerPerson)
-    console.log(tipPerPerson)
+    resetBtn.disabled = true
+    console.log("form reset")
 })
