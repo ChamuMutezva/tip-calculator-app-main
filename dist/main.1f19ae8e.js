@@ -123,7 +123,8 @@ var numPeople = document.querySelector(".num__people");
 var bill = document.querySelector(".bill");
 var custom = document.querySelector(".custom");
 var resetBtn = document.querySelector(".reset");
-var numberRegex = /^\s*[+-]?(\d+|\.\d+|\d+\.\d+|\d+\.)(e[+-]?\d+)?\s*$/;
+var numberRegex = /^\s*[+-]?(\d+|\.\d+|\d+\.\d+|\d+\.)(e[+-]?\d+)?\s*$/; //NUMBER VALIDATION
+
 var form = document.querySelector(".form");
 var validate = false; //console.log(bill)
 
@@ -334,7 +335,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55427" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53155" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

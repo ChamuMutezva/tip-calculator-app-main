@@ -165,6 +165,11 @@ RADIO BUTTONS
   top: 0;
   z-index: 1;
 }
+.percent:hover + label, .percent:focus + label {
+  cursor: pointer;
+  outline: dashed currentColor;
+  outline-offset: -0.25em;
+}
 
 .select__wrapper {
   display: flex;
@@ -363,6 +368,11 @@ total tip and total paid
 }
 .reset:disabled {
   background-color: #0d686d;
+}
+.reset:hover, .reset:focus {
+  cursor: pointer;
+  outline: dashed currentColor;
+  outline-offset: -0.25em;
 }
 
 input[type=radio]:checked + label {

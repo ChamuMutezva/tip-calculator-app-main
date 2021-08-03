@@ -154,10 +154,10 @@
             <div class="people__total">
               <label class="labels lbl__people" for="people__total"
                 >Number of people
-                <span class="err people__err hide__err" aria-live="polite"
+                <span class="err people__err hide__err" role="region" aria-live="polite"
                   >Can't be zero or less</span
-                ></label
-              >
+                >
+              </label>
               <input
                 type="number"
                 class="num__people"
@@ -171,6 +171,7 @@
             <!--END ****  NUMBER OF PEOPLE-->
           </div>
           <div class="display" role="region" aria-live="polite">
+            <!--TIP PER PERSON-->
             <div class="tip__person">
               <label class="tip" for="tip__calculated">
                 Tip Amount <span class="splitter">/ person</span>
@@ -181,18 +182,23 @@
                 type="text"
                 name="tip__only"
                 id="tip__calculated"
+                tabindex="-1"
                 value="$0.00"
                 readonly
               />
             </div>
+
+            <!--TOTAL PER PERSON-->
             <div class="total__person">
               <label class="total" for="totals__calculated"
-                >Total <span class="splitter">/ person</span></label
-              >
+                >Total
+                <span class="splitter">/ person</span>
+              </label>
               <input
                 class="total__value"
                 type="text"
                 name="total__tip"
+                tabindex="-1"
                 id="totals__calculated"
                 value="$0.00"
                 readonly

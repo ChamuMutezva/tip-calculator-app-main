@@ -3,7 +3,7 @@ const numPeople = document.querySelector(".num__people")
 const bill = document.querySelector(".bill")
 const custom = document.querySelector(".custom")
 const resetBtn = document.querySelector(".reset")
-const numberRegex = /^\s*[+-]?(\d+|\.\d+|\d+\.\d+|\d+\.)(e[+-]?\d+)?\s*$/
+const numberRegex = /^\s*[+-]?(\d+|\.\d+|\d+\.\d+|\d+\.)(e[+-]?\d+)?\s*$/ //NUMBER VALIDATION
 const form = document.querySelector(".form")
 let validate = false
 
