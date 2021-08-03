@@ -142,7 +142,9 @@ if (Number(numPeople.value) <= 0) {
 
 radioBtn.forEach(function (item) {
   item.addEventListener("change", function (evt) {
-    calculateBill(evt.target);
+    console.log(evt.target.value);
+    console.log(bill.value);
+    calculateBill(evt.target); // calculateBill(bill.value)
   });
 });
 
@@ -199,7 +201,6 @@ custom.addEventListener("input", function (evt) {
 });
 
 function calculateBill(billedAmount) {
-  // validate = false
   if (bill.value === "" || Number(bill.value) <= 0) {
     //if the bill is an empty string (no data has been entered) or
     // if the bill entered is less that or equal to 0 , then return without doing anything
@@ -280,7 +281,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56079" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56960" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

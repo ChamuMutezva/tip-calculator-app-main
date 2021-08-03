@@ -23,7 +23,10 @@ if (Number(numPeople.value) <= 0) {
 
 radioBtn.forEach(item => {
     item.addEventListener("change", (evt) => {
+        console.log(evt.target.value)
+        console.log(bill.value)
         calculateBill(evt.target)
+       // calculateBill(bill.value)
     })
 })
 
@@ -65,9 +68,7 @@ function validateNumbers(numToValidate, element, errSpan) {
 bill.addEventListener("input", (evt) => {
     const validNum = numberRegex.test(bill.value)
     const billErr = document.querySelector(".bill__err")
-
     validateNumbers(validNum, bill, billErr)
-
 })
 
 numPeople.addEventListener("input", (evt) => {
@@ -90,8 +91,7 @@ custom.addEventListener("input", (evt) => {
 
 
 function calculateBill(billedAmount) {
-    // validate = false
-
+   
     if (bill.value === "" || Number(bill.value) <= 0) {
         //if the bill is an empty string (no data has been entered) or
         // if the bill entered is less that or equal to 0 , then return without doing anything

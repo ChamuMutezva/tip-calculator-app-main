@@ -27,9 +27,11 @@
   <body>
     <div class="wrapper">
       <header class="header">
+        <!--SCREEN READER TEXT-->
         <h1 class="sr-only">
           Calculator to work out tip and total amount to be paid per person
         </h1>
+        <!--END SCREEN READER REXT-->
         <div class="logo__wrapper">
           <img class="logo" src="./images/logo.svg" alt="welcome to splitter" />
         </div>
@@ -38,10 +40,11 @@
       <main class="main">
         <form class="form">
           <div class="inputs input__bill">
+            <!--INPUT *** BILL AMOUNT-->
             <div class="bill__total">
               <label class="bill__label" for="bill"
                 >Bill
-                <span class="err bill__err hide__err"
+                <span class="err bill__err hide__err" aria-live="polite"
                   >Can't be zero or less</span
                 >
               </label>
@@ -56,9 +59,13 @@
                 value="0.00"
               />
             </div>
+            <!--END *** INPUT *** BILL AMOUNT-->
+
+            <!--RADIO BUTTONS - PERCENTAGE SELECT-->
             <fieldset class="select">
               <legend class="labels">Select Tip %</legend>
               <div class="select__wrapper">
+                <!--5% RADIO SELECT-->
                 <div class="input__wrapper five__wrapper">
                   <input
                     type="radio"
@@ -70,7 +77,9 @@
                   />
                   <label class="lbl" for="five">5%</label>
                 </div>
+                <!--END *** 5% RADIO SELECT-->
 
+                <!--10% RADIO SELECT-->
                 <div class="input__wrapper ten__wrapper">
                   <input
                     type="radio"
@@ -81,7 +90,9 @@
                   />
                   <label class="lbl" for="ten">10%</label>
                 </div>
+                <!--END *** 10% RADIO SELECT-->
 
+                <!--15% RADIO SELECT-->
                 <div class="input__wrapper fifteen__wrapper">
                   <input
                     type="radio"
@@ -92,7 +103,9 @@
                   />
                   <label class="lbl" for="fifteen">15%</label>
                 </div>
+                <!--END *** 15% RADIO SELECT-->
 
+                <!--25% RADIO SELECT-->
                 <div class="input__wrapper twentyfive__wrapper">
                   <input
                     type="radio"
@@ -103,7 +116,9 @@
                   />
                   <label class="lbl" for="twentyfive">25%</label>
                 </div>
+                <!--END *** 25% RADIO SELECT-->
 
+                <!--50% RADIO SELECT-->
                 <div class="input__wrapper fifty__wrapper">
                   <input
                     type="radio"
@@ -114,7 +129,9 @@
                   />
                   <label class="lbl" for="fifty">50%</label>
                 </div>
+                <!--END 50% RADIO SELECT-->
 
+                <!--INPUT CUSTOM SELECT-->
                 <div class="input__wrapper custom__wrapper">
                   <label class="lbl customlbl" for="custom"></label>
                   <input
@@ -128,12 +145,16 @@
                     placeholder="Custom"
                   />
                 </div>
+                <!--END INPUT CUSTOM SELECT-->
               </div>
             </fieldset>
+            <!--END *** RADIO BUTTONS - PERCENTAGE SELECT-->
+
+            <!--NUMBER OF PEOPLE-->
             <div class="people__total">
               <label class="labels lbl__people" for="people__total"
                 >Number of people
-                <span class="err people__err hide__err"
+                <span class="err people__err hide__err" aria-live="polite"
                   >Can't be zero or less</span
                 ></label
               >
@@ -147,6 +168,7 @@
                 max="100"
               />
             </div>
+            <!--END ****  NUMBER OF PEOPLE-->
           </div>
           <div class="display" role="region" aria-live="polite">
             <div class="tip__person">
