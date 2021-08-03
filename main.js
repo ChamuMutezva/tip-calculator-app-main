@@ -53,9 +53,10 @@ function validateNumbers(numToValidate, element, errSpan) {
        // console.log(validate)
         if (Number(numPeople.value) <= 0 || Number(bill.value) <= 0) {
             resetBtn.disabled = true
+           errSpan.innerHTML = "Number can't be zero or less"
         } else {
             resetBtn.disabled = false
-        }
+        }        
 
         if (Number(element.value) <= 0) {
            // console.log("not a number")
@@ -63,7 +64,7 @@ function validateNumbers(numToValidate, element, errSpan) {
             element.classList.remove("correct__format")
             element.classList.add("wrong__format")
             calculateDisplayTotals("0", "0")
-            // peopleErr.innerHTML = "Number can not be zero or less"
+            errSpan.innerHTML = "Number can't be zero or less"
             //  resetBtn.disabled = false
         } else {
             errSpan.classList.add("hide__err")

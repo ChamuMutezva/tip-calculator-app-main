@@ -174,6 +174,7 @@ function validateNumbers(numToValidate, element, errSpan) {
     // console.log(validate)
     if (Number(numPeople.value) <= 0 || Number(bill.value) <= 0) {
       resetBtn.disabled = true;
+      errSpan.innerHTML = "Number can't be zero or less";
     } else {
       resetBtn.disabled = false;
     }
@@ -183,8 +184,8 @@ function validateNumbers(numToValidate, element, errSpan) {
       errSpan.classList.remove("hide__err");
       element.classList.remove("correct__format");
       element.classList.add("wrong__format");
-      calculateDisplayTotals("0", "0"); // peopleErr.innerHTML = "Number can not be zero or less"
-      //  resetBtn.disabled = false
+      calculateDisplayTotals("0", "0");
+      errSpan.innerHTML = "Number can't be zero or less"; //  resetBtn.disabled = false
     } else {
       errSpan.classList.add("hide__err");
       element.classList.add("correct__format");
@@ -333,7 +334,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55544" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55427" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

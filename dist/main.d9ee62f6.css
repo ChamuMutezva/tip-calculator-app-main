@@ -435,7 +435,7 @@ input[type=radio]:checked + label {
   }
 
   .err {
-    font-size: 1rem;
+    font-size: 0.75rem;
   }
 
   .reset {
