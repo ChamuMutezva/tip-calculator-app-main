@@ -142,16 +142,36 @@ if (Number(numPeople.value) <= 0) {
 
 radioBtn.forEach(function (item) {
   item.addEventListener("change", function (evt) {
-    console.log(evt.target.value);
-    console.log(bill.value);
-    calculateBill(evt.target); // calculateBill(bill.value)
+    // console.log(evt.target.value)
+    // console.log(bill.value)
+    // calculateBill(evt.target) 1
+    calculateBill(bill.value, evt.target.value, numPeople.value);
   });
 });
 
 function validateNumbers(numToValidate, element, errSpan) {
-  if (numToValidate) {
-    console.log(validate);
+  var rate = 5; // default rate percentage to be used
 
+  console.log(radioBtn);
+  console.log(custom); // check if a radio button is checked, if checked
+  // use the value of the checked button as the rate
+
+  var radioFiltered = radioBtn.filter(function (btn) {
+    return btn.checked === true;
+  }); // if radioFiltered contains an empty array , then no radio
+  // button is selected - meaning that the custom button is to be used
+
+  if (radioFiltered.length === 0) {
+    rate = Number(custom.value);
+  } else {
+    rate = Number(radioFiltered[0].value);
+  }
+
+  console.log(radioFiltered);
+  console.log(rate);
+
+  if (numToValidate) {
+    // console.log(validate)
     if (Number(numPeople.value) <= 0 || Number(bill.value) <= 0) {
       resetBtn.disabled = true;
     } else {
@@ -159,23 +179,26 @@ function validateNumbers(numToValidate, element, errSpan) {
     }
 
     if (Number(element.value) <= 0) {
-      console.log("not a number");
+      // console.log("not a number")
       errSpan.classList.remove("hide__err");
       element.classList.remove("correct__format");
-      element.classList.add("wrong__format"); // peopleErr.innerHTML = "Number can not be zero or less"
+      element.classList.add("wrong__format");
+      calculateDisplayTotals("0", "0"); // peopleErr.innerHTML = "Number can not be zero or less"
       //  resetBtn.disabled = false
     } else {
       errSpan.classList.add("hide__err");
       element.classList.add("correct__format");
       element.classList.remove("wrong__format");
-      calculateBill(bill); // resetBtn.disabled = false
+      calculateBill(bill.value, rate, numPeople.value); // calculateBill(bill) 1
+      // resetBtn.disabled = false
     }
   } else {
-    console.log("not a number");
+    //  console.log("not a number")
     errSpan.classList.remove("hide__err");
     element.classList.remove("correct__format");
     element.classList.add("wrong__format");
-    errSpan.innerHTML = "Not a number"; // resetBtn.disabled = true
+    errSpan.innerHTML = "Not a number";
+    calculateDisplayTotals("0", "0"); // resetBtn.disabled = true
   }
 }
 
@@ -197,35 +220,64 @@ custom.addEventListener("focus", function (evt) {
 });
 custom.addEventListener("input", function (evt) {
   // console.log(custom.value)
-  calculateBill(custom);
+  //  calculateBill(custom) 1
+  custom.checked = true;
+  calculateBill(bill.value, custom.value, numPeople.value);
 });
 
-function calculateBill(billedAmount) {
-  if (bill.value === "" || Number(bill.value) <= 0) {
-    //if the bill is an empty string (no data has been entered) or
-    // if the bill entered is less that or equal to 0 , then return without doing anything
-    // console.log("escape")
-    return false;
+function calculateBill(billedAmount, rate, numpeople) {
+  if (billedAmount === "" || Number(billedAmount <= 0)) {
+    return;
   } else {
-    totalAmount = Number(bill.value); //  console.log(bill.value !== "" || Number(bill.value) >= 0)
-    //   console.log(`total amount is: ${totalAmount}`)
-
-    if (numPeople.value === "" || Number(numPeople.value) <= 0) {
-      // console.log("do nothing")
-      // validate = false
-      return false;
-    } else {
-      totalTipAmount = totalAmount * Number(billedAmount.value) / 100; //evt.target
-
-      totalAmountWithTip = totalAmount + totalTipAmount;
-      tipPerPerson = totalTipAmount / Number(numPeople.value);
-      totalPerPerson = totalAmountWithTip / Number(numPeople.value);
-      validate = true;
-      display();
-      return true;
-    }
+    totalAmount = Number(billedAmount);
   }
+
+  if (numpeople === "" || Number(numpeople) <= 0) {
+    return;
+  }
+
+  totalTipAmount = totalAmount * Number(rate) / 100; //evt.target
+
+  totalAmountWithTip = totalAmount + totalTipAmount;
+  tipPerPerson = totalTipAmount / Number(numpeople);
+  totalPerPerson = totalAmountWithTip / Number(numpeople);
+  validate = true;
+  display();
+  return true;
 }
+/*
+function calculateBill(billedAmount) {
+   
+    if (bill.value === "" || Number(bill.value) <= 0) {
+        //if the bill is an empty string (no data has been entered) or
+        // if the bill entered is less that or equal to 0 , then return without doing anything
+        // console.log("escape")
+        return false
+    }
+    else {
+        totalAmount = Number(bill.value)
+        //  console.log(bill.value !== "" || Number(bill.value) >= 0)
+        //   console.log(`total amount is: ${totalAmount}`)
+        if (numPeople.value === "" || Number(numPeople.value) <= 0) {
+            // console.log("do nothing")
+            // validate = false
+            return false
+        } else {
+
+            totalTipAmount = totalAmount * Number(billedAmount.value) / 100 //evt.target
+            totalAmountWithTip = totalAmount + totalTipAmount
+            tipPerPerson = totalTipAmount / Number(numPeople.value)
+            totalPerPerson = totalAmountWithTip / Number(numPeople.value)
+            validate = true
+
+            display()
+            return true
+        }
+    }
+
+}
+*/
+
 
 function calculateDisplayTotals(tips, totals) {
   var dollarsUS = Intl.NumberFormat("en-US", {
@@ -281,7 +333,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56960" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55544" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

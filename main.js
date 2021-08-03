@@ -23,16 +23,34 @@ if (Number(numPeople.value) <= 0) {
 
 radioBtn.forEach(item => {
     item.addEventListener("change", (evt) => {
-        console.log(evt.target.value)
-        console.log(bill.value)
-        calculateBill(evt.target)
-       // calculateBill(bill.value)
+       // console.log(evt.target.value)
+        // console.log(bill.value)
+       // calculateBill(evt.target) 1
+         calculateBill(bill.value, evt.target.value, numPeople.value)
     })
 })
 
 function validateNumbers(numToValidate, element, errSpan) {
+    let rate = 5 // default rate percentage to be used
+    console.log(radioBtn)
+    console.log(custom)
+
+    // check if a radio button is checked, if checked
+    // use the value of the checked button as the rate
+    const radioFiltered = radioBtn.filter(btn => btn.checked === true)
+
+    // if radioFiltered contains an empty array , then no radio
+    // button is selected - meaning that the custom button is to be used
+    if (radioFiltered.length === 0) {
+        rate = Number(custom.value)
+    } else {
+        rate = Number(radioFiltered[0].value)
+    }
+    console.log(radioFiltered)
+    console.log(rate)
+
     if (numToValidate) {
-        console.log(validate)
+       // console.log(validate)
         if (Number(numPeople.value) <= 0 || Number(bill.value) <= 0) {
             resetBtn.disabled = true
         } else {
@@ -40,26 +58,29 @@ function validateNumbers(numToValidate, element, errSpan) {
         }
 
         if (Number(element.value) <= 0) {
-            console.log("not a number")
+           // console.log("not a number")
             errSpan.classList.remove("hide__err")
             element.classList.remove("correct__format")
             element.classList.add("wrong__format")
+            calculateDisplayTotals("0", "0")
             // peopleErr.innerHTML = "Number can not be zero or less"
             //  resetBtn.disabled = false
         } else {
             errSpan.classList.add("hide__err")
             element.classList.add("correct__format")
             element.classList.remove("wrong__format")
-            calculateBill(bill)
+            calculateBill(bill.value, rate , numPeople.value)
+           // calculateBill(bill) 1
             // resetBtn.disabled = false
         }
     }
     else {
-        console.log("not a number")
+      //  console.log("not a number")
         errSpan.classList.remove("hide__err")
         element.classList.remove("correct__format")
         element.classList.add("wrong__format")
         errSpan.innerHTML = "Not a number"
+        calculateDisplayTotals("0", "0")
         // resetBtn.disabled = true
     }
 
@@ -72,6 +93,7 @@ bill.addEventListener("input", (evt) => {
 })
 
 numPeople.addEventListener("input", (evt) => {
+  
     const validNum = numberRegex.test(numPeople.value)
     const peopleErr = document.querySelector(".people__err")
     validateNumbers(validNum, numPeople, peopleErr)
@@ -86,10 +108,33 @@ custom.addEventListener("focus", (evt) => {
 })
 custom.addEventListener("input", (evt) => {
     // console.log(custom.value)
-    calculateBill(custom)
+  //  calculateBill(custom) 1
+  custom.checked = true
+  calculateBill(bill.value, custom.value, numPeople.value)
 })
 
+function calculateBill(billedAmount, rate, numpeople) {
+    if (billedAmount === "" || Number(billedAmount <= 0)) {
+        return 
+    } else {
+        totalAmount = Number(billedAmount)
+    }
 
+    if (numpeople === "" || Number(numpeople) <= 0) {       
+        return 
+    }
+
+    totalTipAmount = totalAmount * Number(rate) / 100 //evt.target
+    totalAmountWithTip = totalAmount + totalTipAmount
+    tipPerPerson = totalTipAmount / Number(numpeople)
+    totalPerPerson = totalAmountWithTip / Number(numpeople)
+    validate = true
+
+    display()
+    return true
+}
+
+/*
 function calculateBill(billedAmount) {
    
     if (bill.value === "" || Number(bill.value) <= 0) {
@@ -120,6 +165,7 @@ function calculateBill(billedAmount) {
     }
 
 }
+*/
 
 function calculateDisplayTotals(tips, totals) {
     const dollarsUS = Intl.NumberFormat("en-US", {
