@@ -135,38 +135,6 @@ function calculateBill(billedAmount, rate, numpeople) {
     return true
 }
 
-/*
-function calculateBill(billedAmount) {
-   
-    if (bill.value === "" || Number(bill.value) <= 0) {
-        //if the bill is an empty string (no data has been entered) or
-        // if the bill entered is less that or equal to 0 , then return without doing anything
-        // console.log("escape")
-        return false
-    }
-    else {
-        totalAmount = Number(bill.value)
-        //  console.log(bill.value !== "" || Number(bill.value) >= 0)
-        //   console.log(`total amount is: ${totalAmount}`)
-        if (numPeople.value === "" || Number(numPeople.value) <= 0) {
-            // console.log("do nothing")
-            // validate = false
-            return false
-        } else {
-
-            totalTipAmount = totalAmount * Number(billedAmount.value) / 100 //evt.target
-            totalAmountWithTip = totalAmount + totalTipAmount
-            tipPerPerson = totalTipAmount / Number(numPeople.value)
-            totalPerPerson = totalAmountWithTip / Number(numPeople.value)
-            validate = true
-
-            display()
-            return true
-        }
-    }
-
-}
-*/
 
 function calculateDisplayTotals(tips, totals) {
     const dollarsUS = Intl.NumberFormat("en-US", {
