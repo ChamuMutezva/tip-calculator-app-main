@@ -1,8 +1,7 @@
 {
   "name": "tip-calculator-app-main",
   "version": "1.0.0",
-  "description": "![Design preview for the Tip calculator app coding challenge](./design/desktop-preview.jpg)",
-  "main": "index.js",
+  "description": "![Design preview for the Tip calculator app coding challenge](./design/desktop-preview.jpg)",  
   "scripts": {
     "start": "parcel index.html",
     "build": "npm run parcel && npm run sass",
@@ -11,5 +10,12 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.10.0",
+    "parcel": "^2.10.0"
+  },
+  "dependencies": {
+    "node-sass": "^9.0.0"
+  }
 }

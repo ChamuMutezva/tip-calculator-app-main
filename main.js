@@ -143,8 +143,8 @@ function calculateDisplayTotals(tips, totals) {
     })
     const displayTip = document.querySelector(".tip__value")
     const displayTotalAmount = document.querySelector(".total__value")
-    displayTip.value = dollarsUS.format(tips)
-    displayTotalAmount.value = dollarsUS.format(totals)
+    displayTip.innerHTML = dollarsUS.format(tips)
+    displayTotalAmount.innerHTML = dollarsUS.format(totals)
     //displayTip.innerHTML = dollarsUS.format(tips)
     // displayTotalAmount.innerHTML = dollarsUS.format(totals)
 }
